@@ -64,9 +64,13 @@ public class SolicitudController {
         LocalDate fecha = LocalDate.now();
         boolean isBefore = fecha.isAfter(solicitudes.getFechaIngreso());
         int id_cliente = 0;
+        try{
+            var solictud_cliente = service.getCliente(solicitudes.getId_cliente());
+            id_cliente  = solictud_cliente.getId_cliente();
+        }catch (Exception e){
+            log.error("ocurrio un error en "+e.getMessage());
+        }
 
-          var solictud_cliente = service.getCliente(solicitudes.getId_cliente());
-          id_cliente  = solictud_cliente.getId_cliente();
 
 
 
