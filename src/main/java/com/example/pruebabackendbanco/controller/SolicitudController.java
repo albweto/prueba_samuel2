@@ -121,4 +121,9 @@ public class SolicitudController {
         return new ResponseEntity(new Mensaje("tarea eliminada"), HttpStatus.OK);
     }
 
+    @GetMapping("/hola")
+    public @ResponseBody String greeting() {
+        return "hola mundo";
+    }
+
 }
